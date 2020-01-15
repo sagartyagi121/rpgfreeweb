@@ -15,12 +15,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/worksofliam/rpgfreeweb.git"
+    "url": "git+https://github.com/sagartyagi121/rpgfreeweb"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/worksofliam/rpgfreeweb/issues"
+    "url": "https://github.com/sagartyagi121/rpgfreeweb/tree/electron-rpgfreeformat/issues"
   },
-  "homepage": "https://github.com/worksofliam/rpgfreeweb#readme"
+  "homepage": "https://github.com/sagartyagi121/rpgfreeweb/tree/electron-rpgfreeformat#readme"
 }
