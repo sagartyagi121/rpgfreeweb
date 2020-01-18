@@ -32,7 +32,7 @@ app.post('/fileupload', function(req, res) {
       form.parse(req, function (err, fields, files) {
         var oldpath = files.filetoupload.path;
         // Use your system's path 
-        var newpath = 'C:/Users/Krishna/Documents/a/' + files.filetoupload.name;
+        var newpath = 'C:/Users/gajendra.tyagi/Documents/a/' + files.filetoupload.name;
         var newLine = []; 
         fs.rename(oldpath, newpath, function (err) {
           if (err) throw err;
