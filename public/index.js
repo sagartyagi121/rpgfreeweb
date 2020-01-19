@@ -1,4 +1,5 @@
 import { convertCode } from './convertCode';
+var output = document.getElementById('output');
 
 function freeMyRPG(){
   convertCode('text').then(
