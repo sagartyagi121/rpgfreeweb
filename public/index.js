@@ -1,4 +1,4 @@
-import { convertCode } from './convertCode';
+import RPG from './rpg/RPG';
 var output = document.getElementById('output');
 
 function freeMyRPG(){
@@ -14,5 +14,22 @@ function freeMyRPG(){
          messages.innerHTML = messageHTML;
        }
     });
+}
+
+function convertCode(type) {
+  var input = document.getElementById('input');
+  var userDefinedTab = document.getElementById('userDefinedTab');
+  var messages = document.getElementById('messages');
+  var inputstring = JSON.stringify(input.value);
+  var lines = input.value.split('\n');
+  var indent = userDefinedTab.value;
+
+  if (type === 'text') {
+    lines.push('', '');
+    var conv = new RPG(lines, Number(indent));
+    conv.parse();
+    let requestConvert = { lines, messages: conv.messages };
+    return requestConvert;
+  }
 }
 

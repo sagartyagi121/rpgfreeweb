@@ -1,5 +1,5 @@
 
-const RPG = require('./rpg/RPG');
+const RPG = require('./public/rpg/RPG');
 
 const bodyParser = require('body-parser');
 const formidable = require('formidable');
