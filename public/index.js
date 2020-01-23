@@ -1,4 +1,4 @@
-import RPG from './rpg/RPG';
+var RPG = require('./rpg/RPG');
 var output = document.getElementById('output');
 
 function freeMyRPG(){

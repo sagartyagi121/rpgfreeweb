@@ -10,7 +10,8 @@
     "formidable": "^1.2.1"
   },
   "devDependencies": {
-    "devtron": "^1.4.0"
+    "devtron": "^1.4.0",
+    "webpack": "^4.41.5"
   },
   "scripts": {
     "start": "electron ."
