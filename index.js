@@ -64,7 +64,7 @@ app.post('/fileupload', function(req, res) {
 
         });
       });
-  } 
+  }
 });
   
 app.listen(port, () => console.log(`rpgfreeweb listening on port ${port}!`))

@@ -11,7 +11,8 @@
   },
   "devDependencies": {
     "devtron": "^1.4.0",
-    "webpack": "^4.41.5"
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
   },
   "scripts": {
     "start": "electron ."
