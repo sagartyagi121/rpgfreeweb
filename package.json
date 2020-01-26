@@ -5,7 +5,8 @@
   "main": "main.js",
   "dependencies": {
     "electron": "^7.1.9",
-    "formidable": "^1.2.1"
+    "formidable": "^1.2.1",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "devtron": "^1.4.0",
