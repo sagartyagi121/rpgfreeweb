@@ -15,7 +15,6 @@
     <!--Cannot defer-->
     <script src="https://cdn.rawgit.com/showdownjs/showdown/1.8.6/dist/showdown.min.js"></script>
     <!-- <script type="text/javascript" src="./RPGfree.js"></script> -->
-    <script type="text/javascript" src="./index.js"></script>
     <script type="module" src="./rpg/RPG.js"></script>
     <script type="module" src="./rpg/specs/C.js"></script>
     <script type="module" src="./rpg/specs/D.js"></script>
@@ -159,18 +158,18 @@
       <div class="row"> 
         <div  class="col-md-6" >
 
-          <h3>Upload File </h3>
+          <h3>Select File to convert </h3>
           <div class="row">
             <div class="container mt-3">
-              <form action="fileupload()" >
+              <!-- <form onsubmit="event.preventDefault();fileUpload();" > -->
                 <div class="custom-file mb-1">
-                  <input type="file" name="filetoupload" class="custom-file-input" id="customFile">
-                  <label class="custom-file-label" for="customFile">Choose file</label>
+                  <input type="text" name="filetoupload" onclick="selectFile()" class="custom-file-input" id="customFile">
+                  <label class="custom-file-label" for="customFile" id='inputLabel'>Choose file</label>
                 </div>
                 <div class="mt-1">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="button" class="btn btn-primary" onclick="convertFile()">Submit</button>
                 </div> 
-              </form>
+              <!-- </form> -->
             </div>
         </div>
         </div>  
@@ -179,12 +178,15 @@
     </div>
    </div>
    <script>
+
     $(".custom-file-input").on("change", function() {
       var fileName = $(this).val().split("\\").pop();
       $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
     });
         
     </script>
+    <script type="text/javascript" src="./index.js"></script>
+    
 </body>
 
 </html>

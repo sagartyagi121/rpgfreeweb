@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu } = require('electron')
+const { app, BrowserWindow, Menu, dialog } = require('electron')
 
 // Keep a global reference of the window object
 let win; 
@@ -18,8 +18,8 @@ function createWindow () {
 
   // Load the index.html of the app.
   win.loadFile('./public/index.html')
-
-  // On window close
+  
+    // On window close
   win.on('closed', () => {
     // clear window array 
     win = null
@@ -58,6 +58,13 @@ const mainMenuTemplate =  [
   {
     label: 'File',
     submenu:[
+      {
+        label: 'Slect File',
+        accelerator:process.platform == 'darwin' ? 'Command+U' : 'Ctrl+U',
+        click(){
+          openDialogBox();
+        }
+      },
       {
         label: 'Quit',
         accelerator:process.platform == 'darwin' ? 'Command+Q' : 'Ctrl+Q',
