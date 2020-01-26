@@ -32,6 +32,47 @@ function convertCode(type) {
   }
 }
 
-function fileupload(){
-  console.log("upload file")
-}
+
+app.post('/fileupload', function(req, res) {
+  if (req.url == '/fileupload') {
+    var form = new formidable.IncomingForm();
+    form.parse(req, function (err, fields, files) {
+      var oldpath = files.filetoupload.path;
+      var newpath = 'C:/Users/krishna/Documents/a/' + files.filetoupload.name;
+      var newLine = []; 
+      fs.rename(oldpath, newpath, function (err) {
+          if (err) throw err;
+          const readInterface = readline.createInterface({
+            input: fs.createReadStream(newpath),
+            console: false
+          });  
+         
+          let i = 0 ;  
+          readInterface.on('line', function(line) {
+          newLine.push( line ) ; 
+          i++
+          });
+
+          // on file close 
+          readInterface.on('close', function(line) {
+            var conv = new RPG(newLine, Number('2'));
+            conv.parse();
+            
+            fs.unlink(newpath, (err) => {
+              if (err) throw err;
+              var file = fs.createWriteStream(newpath);
+              file.on('error', function(err) { Console.log(err) });
+              conv.lines.forEach(value => file.write(`${value}\r\n`));
+              file.end();
+              file.on('close', function() {
+                res.download(newpath); 
+              });
+             
+            })
+          });
+      });
+
+   });
+  } 
+});
+
