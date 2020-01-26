@@ -1,5 +1,6 @@
 const RPG = require('./rpg/RPG.js' );
 
+// catch the code and send for conversion 
 function freeMyRPG(){
   let convertedCode = convertCode('text') ; 
   var data = convertedCode ;
@@ -29,4 +30,8 @@ function convertCode(type) {
     let requestConvert = { lines, messages: conv.messages };
     return requestConvert;
   }
+}
+
+function fileupload(){
+  console.log("upload file")
 }

@@ -1,8 +1,10 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, Menu } = require('electron')
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+// Keep a global reference of the window object
 let win; 
+
+// SET ENV
+process.env.NODE_ENV = 'development';
 
 function createWindow () {
   // Create the browser window.
@@ -14,24 +16,23 @@ function createWindow () {
     }
   }); 
 
-  // and load the index.html of the app.
+  // Load the index.html of the app.
   win.loadFile('./public/index.html')
 
-  // Open the DevTools.
-  //win.webContents.openDevTools()
-
-  // Emitted when the window is closed.
+  // On window close
   win.on('closed', () => {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
+    // clear window array 
     win = null
-  })
+  });
+
+  // Build menu from template
+  const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
+  // Insert menu
+  Menu.setApplicationMenu(mainMenu);
+
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
+// When electron is ready start loading the files 
 app.on('ready', createWindow)
 
 // Quit when all windows are closed.
@@ -51,5 +52,38 @@ app.on('activate', () => {
   }
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+// Create menu template
+const mainMenuTemplate =  [
+  // Each object is a dropdown
+  {
+    label: 'File',
+    submenu:[
+      {
+        label: 'Quit',
+        accelerator:process.platform == 'darwin' ? 'Command+Q' : 'Ctrl+Q',
+        click(){
+          app.quit();
+        }
+      }
+    ]
+  }
+];
+
+// Add developer tools option if in dev
+if(process.env.NODE_ENV !== 'production'){
+  mainMenuTemplate.push({
+    label: 'Developer Tools',
+    submenu:[
+      {
+        role: 'reload'
+      },
+      {
+        label: 'Toggle DevTools',
+        accelerator:process.platform == 'darwin' ? 'Command+I' : 'Ctrl+I',
+        click(item, focusedWindow){
+          focusedWindow.toggleDevTools();
+        }
+      }
+    ]
+  });
+}
