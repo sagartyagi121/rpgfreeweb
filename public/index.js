@@ -12,7 +12,6 @@ function freeMyRPG(){
       }
       messages.innerHTML = messageHTML;
   }
-  
 }
 
 function convertCode(type) {
@@ -22,8 +21,8 @@ function convertCode(type) {
   var inputstring = JSON.stringify(input.value);
   var lines = input.value.split('\n');
   var indent = userDefinedTab.value;
-
-  if (type === 'text') {
+  
+  if (type == 'text') {
     lines.push('', '');
     var conv = new RPG(lines, Number(indent));
     conv.parse();
