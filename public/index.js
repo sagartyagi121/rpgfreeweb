@@ -1,12 +1,9 @@
 const RPG = require('./rpg/RPG.js' );
 const { dialog } = require('electron').remote;
-
-// const bodyParser = require('body-parser');
 const formidable = require('formidable');
 const readline = require('readline');
 const path = require('path');
 const fs = require('fs');
-// const app = express();
 
 // catch the code and send for conversion 
 function freeMyRPG(){
@@ -114,6 +111,5 @@ function convertFile(){
       alert(`Your file is waiting for you at 
             ${filePathToConvert}`);
     });
-
   });
 }
