@@ -108,6 +108,7 @@ function convertFile(){
     conv.lines.forEach(value => file.write(`${value}\r\n`));
     file.end();
     file.on('close', function() {
+      inputLabel.innerHTML = '' ; 
       alert(`Your file is waiting for you at 
             ${filePathToConvert}`);
     });
