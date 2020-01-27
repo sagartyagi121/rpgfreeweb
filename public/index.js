@@ -1,4 +1,4 @@
-const RPG = require('./rpg/RPG.js' );
+const RPG = require('./rpg/RPG.js').default;
 const { dialog } = require('electron').remote;
 const formidable = require('formidable');
 const readline = require('readline');
