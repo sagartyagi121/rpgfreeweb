@@ -1,6 +1,5 @@
 const { app, BrowserWindow, Menu, dialog } = require('electron')
 
-
 // Keep a global reference of the window object
 let win; 
 

@@ -16,7 +16,7 @@
   "scripts": {
     "start": "electron .",
     "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=public/assets/icon/rpgfree.png --prune=true --out=release-builds",
-    "package-win": "electron-packager . rpgfreeDesktop --overwrite --platform=win32 --arch=ia32 --icon=public/assets/icon/rpgfree.png --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"RPG format converter\"",
+    "package-win": "electron-packager . rpgfreeDesktop --overwrite --platform=win32 --arch=ia32 --icon=public/assets/icon/rpgfree.png --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"RPG format converter\"",    
     "package-linux": "electron-packager . rpgfreeDesktop --overwrite --asar=true --platform=linux --arch=x64 --icon=public/assets/icon/rpgfree.png --prune=true --out=release-builds"
   },
   "repository": {
