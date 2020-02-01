@@ -95,19 +95,3 @@ if(process.env.NODE_ENV !== 'production'){
     ]
   });
 }
-
-function createWindow () {
-  // Create the browser window.
-  let win = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
-      nodeIntegration: true
-    }
-  })
-
-  // and load the index.html of the app.
-  win.loadFile('/pblic/index.html')
-}
-
-app.on('ready', createWindow)
