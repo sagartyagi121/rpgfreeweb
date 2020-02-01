@@ -4,6 +4,9 @@
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>
+      delete module.exports
+    </script>
     <script defer src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -11,9 +14,15 @@
     <script defer src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <!--Cannot defer-->
     <script src="https://cdn.rawgit.com/showdownjs/showdown/1.8.6/dist/showdown.min.js"></script>
-    <script src="index.js"></script>
-    <link rel="stylesheet" href="index.css">
-    <title>RPG fixed converter (Works Of Barry)</title>
+    <!-- <script type="text/javascript" src="./RPGfree.js"></script> -->
+    <script type="module" src="./rpg/RPG.js"></script>
+    <script type="module" src="./rpg/specs/C.js"></script>
+    <script type="module" src="./rpg/specs/D.js"></script>
+    <script type="module" src="./rpg/specs/F.js"></script>
+    <script type="module" src="./rpg/specs/H.js"></script>
+    <script type="module" src="./rpg/specs/P.js"></script>
+    <link rel="stylesheet" href="./index.css">
+    <title>RPG fixed converter (Works Of Barry + GajenderTyagi)</title>
 </head>
 
 <body>
@@ -129,7 +138,7 @@
        	  <input type="number" id="userDefinedTab" min="0" value="2">
         </div> 
         <div class="btn-group" role="group">
-          <button class="btn btn-primary" type="button" onclick="convertCode()">
+          <button class="btn btn-primary" type="button" onclick="freeMyRPG()">
             Convert
           </button>
         </div>
@@ -149,18 +158,22 @@
       <div class="row"> 
         <div  class="col-md-6" >
 
-          <h3>Upload File </h3>
-          <div class="row" >
+          <h3>Select File to convert </h3>
+          <div class="row">
             <div class="container mt-3">
-              <form action="fileupload" method="post" enctype="multipart/form-data" >
+              <!-- <form onsubmit="event.preventDefault();fileUpload();" > -->
                 <div class="custom-file mb-1">
-                  <input type="file" name="filetoupload" class="custom-file-input" id="customFile">
-                  <label class="custom-file-label" for="customFile">Choose file</label>
+                  <input type="text" name="filetoupload" onclick="selectFile()" class="custom-file-input" id="customFile">
+                  <label class="custom-file-label" for="customFile" id='inputLabel'>Choose file</label>
+                </div>
+                <div class="input-group mb-3">
+                  <input type="text" name="newFileName" class="form-control" id="newFileName">
+                  <label class="form-control" for="newFileName" id='newFileNameLabel'>Enter New File name {optional}</label>
                 </div>
                 <div class="mt-1">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="button" class="btn btn-primary" onclick="convertFile()">Submit</button>
                 </div> 
-              </form>
+              <!-- </form> -->
             </div>
         </div>
         </div>  
@@ -169,11 +182,15 @@
     </div>
    </div>
    <script>
+
     $(".custom-file-input").on("change", function() {
       var fileName = $(this).val().split("\\").pop();
       $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
     });
+        
     </script>
+    <script type="text/javascript" src="./index.js"></script>
+    
 </body>
 
 </html>

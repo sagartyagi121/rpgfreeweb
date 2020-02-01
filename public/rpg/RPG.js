@@ -1,9 +1,11 @@
+const fp = process.cwd() + "\\public\\rpg\\specs\\" ; 
+
 const specs = {
-  'C': require('./specs/C'),
-  'F': require('./specs/F'),
-  'D': require('./specs/D'),
-  'H': require('./specs/H'),
-  'P': require('./specs/P')
+  'C': require( fp + 'C' ),
+  'F': require( fp + 'F' ),
+  'D': require( fp + 'D' ),
+  'H': require( fp + 'H' ),
+  'P': require( fp + 'P' )
 };
 
 class Message {

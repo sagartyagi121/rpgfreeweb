@@ -4,15 +4,20 @@
   "description": "Convert fixed format RPG to free format RPG",
   "main": "main.js",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1",
-    "formidable": "^1.2.1"
+    "electron": "^7.1.9",
+    "formidable": "^1.2.1",
+    "path": "^0.12.7"
   },
   "devDependencies": {
-    "electron": "^7.1.9"
+    "devtron": "^1.4.0",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
   },
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=public/assets/icon/rpgfree.png --prune=true --out=release-builds",
+    "package-win": "electron-packager . rpgfreeDesktop --overwrite --platform=win32 --arch=ia32 --icon=public/assets/icon/rpgfree.png --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"RPG format converter\"",    
+    "package-linux": "electron-packager . rpgfreeDesktop --overwrite --asar=true --platform=linux --arch=x64 --icon=public/assets/icon/rpgfree.png --prune=true --out=release-builds"
   },
   "repository": {
     "type": "git",
