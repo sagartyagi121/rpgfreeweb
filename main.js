@@ -95,7 +95,7 @@ if(process.env.NODE_ENV !== 'production'){
     ]
   });
 }
-=======
+
 function createWindow () {
   // Create the browser window.
   let win = new BrowserWindow({
@@ -111,4 +111,3 @@ function createWindow () {
 }
 
 app.on('ready', createWindow)
-
