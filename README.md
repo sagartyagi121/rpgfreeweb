@@ -1,6 +1,6 @@
 # RPG freeformat converting
 
-Fixed to free converter written in Node.js JavaScript.
+Fixed to free converter written in Node.js JavaScript which you can self host. The port number is currently hardcoded to `9124`.
 
 ### Setup
 
